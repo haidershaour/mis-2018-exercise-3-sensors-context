@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Sensor</string>
+    <string name="app_name">Assignment3</string>
+    <string name="textview">TextView</string>
+    <string name="speed1" />
 </resources>

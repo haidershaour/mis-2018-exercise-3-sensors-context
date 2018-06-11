@@ -155,6 +155,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 winSize = (int)Math.pow(2,d/8);
                 //System.out.println("kkkkkk"+winSize);
 
+                d = 1;
 
 
             }
@@ -258,7 +259,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                //senSensorManager.registerListener(MainActivity.this, senAccelerometer, sampleRate*1000000);
+                senSensorManager.registerListener(MainActivity.this, senAccelerometer, sampleRate*1000000);
+
 
             }
         });
@@ -399,13 +401,21 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         float delta= acelVal-acelLast;
         shake=shake * 0.9f + delta;
         shake1.setText( ""+shake );
-        if (shake>= 4 && kmphSpeed>=7) {
+
+        //System.out.println("oooooooooooooooooo");
+        //System.out.println(shake);
+        //kmphSpeed = 8;
+
+        if (shake>= 3 && kmphSpeed>=1) {
             textView1.setText( "MOOOOOOOVVVVVVIIIIIIIINNNNNNNGGGGGGGG" );
+
+            System.out.println(kmphSpeed);
             changechart(event,EntryIndex);
             mp.start();
         }
         else{
             //mp.pause();
+
             textView1.setText( "" );
             changechart(event,EntryIndex);
         }
@@ -618,7 +628,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 addfft = addEntry((float) freqCounts[e], fttidx);
                 count++;
 //                fttidx++;
-                System.out.println(count);
+                //System.out.println(count);
                 fftlinedata.addEntry(addfft, 0);
 //
 
@@ -632,7 +642,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
                 fttidx++;
             }
-            System.out.println("=========");
+            //System.out.println("=========");
 
 
 
